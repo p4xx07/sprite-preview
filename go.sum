@@ -1,0 +1,6 @@
+github.com/Paxx-RnD/go-ffmpeg v1.0.29 h1:Fk4A+X1j41/yz5ap2ZjePcYG6ZcGB8td8BfNhmmXWz0=
+github.com/Paxx-RnD/go-ffmpeg v1.0.29/go.mod h1:ymbsA0Vww2EirvEY3bqLchnLhZ/Cf0nlH/ugk8nbg6w=
+github.com/Paxx-RnD/go-helper v1.0.38 h1:qVo04KjJ3KDDavx707P3D1j12s6Ug7iLkCNFgepXZHI=
+github.com/Paxx-RnD/go-helper v1.0.38/go.mod h1:6A+jqzBntdVzzvVQ9lQMjU6LiiOLZ+2KINXZhdnaAH8=
+github.com/caarlos0/env/v6 v6.10.1 h1:t1mPSxNpei6M5yAeu1qtRdPAK29Nbcf/n3G7x+b3/II=
+github.com/caarlos0/env/v6 v6.10.1/go.mod h1:hvp/ryKXKipEkcuYjs9mI4bBCg+UI0Yhgm5Zu0ddvwc=
