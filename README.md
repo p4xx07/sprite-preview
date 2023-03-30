@@ -25,3 +25,6 @@ sprite-preview -i input_file.mp4 -o output.png -f 1 -w 160 -h 90 -v output.vtt
 - v: Path to the output VTT file. If not specified, no VTT file will be generated.
 
 # Preview
+
+
+![2023-03-30 11 25 50](https://user-images.githubusercontent.com/50495900/228792170-f43c7024-8d86-4b87-b88c-7937dab5c879.jpg)
