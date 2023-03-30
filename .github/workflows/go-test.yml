@@ -13,6 +13,9 @@ jobs:
     #
     steps:
       - uses: actions/checkout@v3
+      # added ffmpeg
+      - uses: FedericoCarboni/setup-ffmpeg@v2
+        id: setup-ffmpeg
       #
       - name: Setup Go ${{ matrix.go-version }}
         uses: actions/setup-go@v4
@@ -33,3 +36,5 @@ jobs:
       - name: Test with the Go CLI
         run: go test -v ./...
       #
+  #
+#
