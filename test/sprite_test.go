@@ -28,17 +28,14 @@ func Configuration() *configuration.Configuration {
 }
 
 func TestNewService(t *testing.T) {
-	flags := types.Flags{}
-	flags.Set()
+	flags := getFlags()
 	ffprobe := ffprobe.NewFfProbe(Configuration(), nil)
 	s := sprite.NewService(flags, ffprobe)
 	assert.NotNil(t, s)
 }
 
 func TestGenerateFrames(t *testing.T) {
-	flags := types.Flags{Input: &inputPath}
-	flags.Set()
-	flags.Input = &inputPath
+	flags := getFlags()
 	ffprobe := ffprobe.NewFfProbe(Configuration(), nil)
 	s := sprite.NewService(flags, ffprobe)
 
@@ -54,10 +51,7 @@ func TestGenerateFrames(t *testing.T) {
 }
 
 func TestMontage(t *testing.T) {
-	flags := types.Flags{Input: &inputPath, Output: &outputPath}
-	flags.Set()
-	flags.Input = &inputPath
-	flags.Output = &outputPath
+	flags := getFlags()
 	ffprobe := ffprobe.NewFfProbe(Configuration(), nil)
 	s := sprite.NewService(flags, ffprobe)
 
@@ -72,16 +66,7 @@ func TestMontage(t *testing.T) {
 }
 
 func TestGenerateVtt(t *testing.T) {
-	flags := types.Flags{
-		Input:     &inputPath,
-		Output:    &outputPath,
-		Vtt:       &vttPath,
-		Frequency: &frameFrequency,
-		Width:     &frameWidth,
-		Height:    &frameHeight,
-		Rows:      &numRows,
-		Columns:   &numCols,
-	}
+	flags := getFlags()
 	ffprobe := ffprobe.NewFfProbe(Configuration(), nil)
 	s := sprite.NewService(flags, ffprobe)
 
@@ -96,4 +81,18 @@ func TestGenerateVtt(t *testing.T) {
 
 	os.Remove(outputPath)
 	os.Remove(vttPath)
+}
+
+func getFlags() types.Flags {
+	flags := types.Flags{
+		Input:     &inputPath,
+		Output:    &outputPath,
+		Vtt:       &vttPath,
+		Frequency: &frameFrequency,
+		Width:     &frameWidth,
+		Height:    &frameHeight,
+		Rows:      &numRows,
+		Columns:   &numCols,
+	}
+	return flags
 }
