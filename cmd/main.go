@@ -4,8 +4,8 @@ import (
 	"flag"
 	"github.com/Paxx-RnD/go-ffmpeg/configuration"
 	"github.com/Paxx-RnD/go-ffmpeg/ffprobe"
-	"peak-tracer/sprite"
-	"peak-tracer/types"
+	"sprite-preview/sprite"
+	"sprite-preview/types"
 )
 
 func main() {

@@ -11,7 +11,7 @@ import (
 	"os"
 	"os/exec"
 	"path"
-	"peak-tracer/types"
+	"sprite-preview/types"
 	"strconv"
 	"time"
 )

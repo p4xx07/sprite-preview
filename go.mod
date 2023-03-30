@@ -1,4 +1,4 @@
-module peak-tracer
+module sprite-preview
 
 go 1.20
 
