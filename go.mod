@@ -1,6 +1,6 @@
 module sprite-preview
 
-go 1.20
+go 1.18
 
 require (
 	github.com/Paxx-RnD/go-ffmpeg v1.0.29
