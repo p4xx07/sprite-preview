@@ -16,7 +16,7 @@ func main() {
 		panic(err)
 	}
 
-	if *flags.Help {
+	if flags.Help {
 		flag.Usage()
 		return
 	}
@@ -34,7 +34,7 @@ func main() {
 	fmt.Printf("Start Montage\n")
 	s.Montage(frames)
 
-	if flags.Vtt == nil && *flags.Vtt == "" {
+	if flags.Vtt == "" && flags.Vtt == "" {
 		return
 	}
 

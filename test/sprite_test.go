@@ -85,14 +85,14 @@ func TestGenerateVtt(t *testing.T) {
 
 func getFlags() types.Flags {
 	flags := types.Flags{
-		Input:     &inputPath,
-		Output:    &outputPath,
-		Vtt:       &vttPath,
-		Frequency: &frameFrequency,
-		Width:     &frameWidth,
-		Height:    &frameHeight,
-		Rows:      &numRows,
-		Columns:   &numCols,
+		Input:     inputPath,
+		Output:    outputPath,
+		Vtt:       vttPath,
+		Frequency: frameFrequency,
+		Width:     frameWidth,
+		Height:    frameHeight,
+		Rows:      numRows,
+		Columns:   numCols,
 	}
 	return flags
 }
