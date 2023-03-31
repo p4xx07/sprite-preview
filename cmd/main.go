@@ -34,7 +34,7 @@ func main() {
 	fmt.Printf("Start Montage\n")
 	s.Montage(frames)
 
-	if flags.Vtt == "" && flags.Vtt == "" {
+	if flags.Vtt == "" {
 		return
 	}
 
