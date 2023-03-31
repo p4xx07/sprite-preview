@@ -32,4 +32,7 @@ WORKDIR /app
 COPY --from=build /app/main .
 
 # Run the binary
-CMD ["./main"]
+ENTRYPOINT ["./main"]
+
+# Set default arguments
+CMD ["-i", "input.mp4"]

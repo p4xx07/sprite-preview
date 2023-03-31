@@ -34,7 +34,7 @@ func NewService(flags types.Flags, ffprobe ffprobe.IFfprobe) IService {
 func (s *service) GenerateFrames() []string {
 	probe, err := s.ffprobe.GetProbe(*s.flags.Input)
 	if err != nil {
-		panic(fmt.Sprintf("could probe: %v", err))
+		panic(fmt.Sprintf("could not probe: %v", err))
 	}
 
 	duration, err := strconv.ParseFloat(probe.GetFirstVideoStream().Duration, 64)
@@ -53,7 +53,8 @@ func (s *service) GenerateFrames() []string {
 
 func (s *service) extract(seek int) string {
 	seekString := strconv.Itoa(seek)
-	output := random_helper.Generate(10, random_helper.AZAndCaps) + ".png"
+	now := time.Now()
+	output := random_helper.Generate(5, random_helper.AZAndCaps) + fmt.Sprintf("%d", now.UnixMilli()) + ".png"
 	cmd := exec.Command(
 		"ffmpeg",
 		"-ss",
@@ -74,13 +75,14 @@ func (s *service) extract(seek int) string {
 }
 
 func (s *service) Montage(frames []string) {
-	cmd := exec.Command("montage", "-mode", "concatenate", "-tile", "10x10")
+	cmd := exec.Command("montage", "-mode", "concatenate", "-tile", fmt.Sprintf("%dx%d", *s.flags.Columns, *s.flags.Rows))
 
 	for _, image := range frames {
 		cmd.Args = append(cmd.Args, image)
 	}
 
 	cmd.Args = append(cmd.Args, *s.flags.Output)
+
 	_, err := cmd.CombinedOutput()
 	s.clean(frames)
 	if err != nil {
