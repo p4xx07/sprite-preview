@@ -19,7 +19,7 @@ type Flags struct {
 
 func (f *Flags) Set() error {
 	input := flag.String("i", "", "path of the input video")
-	prefix := flag.String("prefix", "", "prefix sprites")
+	prefix := flag.String("prefix", "sprite", "prefix sprites")
 	vtt := flag.String("vtt", "", "specify the prefix for the vtt file")
 	frequency := flag.Int("f", 3, "extract frames every n seconds")
 	rows := flag.Int("row", 10, "how many rows")
