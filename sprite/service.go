@@ -54,6 +54,7 @@ func (s *service) extract(seek int) string {
 	seekString := strconv.Itoa(seek)
 	now := time.Now()
 	output := random_helper.Generate(5, random_helper.AZAndCaps) + fmt.Sprintf("%d", now.UnixMilli()) + ".png"
+	outputPath := path.Join(path.Dir(s.flags.Input), output)
 	cmd := exec.Command(
 		"ffmpeg",
 		"-ss",
@@ -64,13 +65,13 @@ func (s *service) extract(seek int) string {
 		fmt.Sprintf("scale=%dx%d", s.flags.Width, s.flags.Height),
 		"-frames",
 		"1",
-		output,
+		outputPath,
 	)
 	_, err := cmd.CombinedOutput()
 	if err != nil {
 		panic(fmt.Sprintf("failed to extract frame: %v", err))
 	}
-	return output
+	return outputPath
 }
 
 func (s *service) Montage(frames []string) {
