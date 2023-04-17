@@ -9,6 +9,7 @@ import (
 	"math"
 	"os"
 	"os/exec"
+	"path"
 	"sprite-preview/types"
 	"strconv"
 	"time"
@@ -79,7 +80,9 @@ func (s *service) Montage(frames []string) {
 		cmd.Args = append(cmd.Args, image)
 	}
 
-	cmd.Args = append(cmd.Args, s.flags.Prefix+".png")
+	spritePath := path.Join(path.Dir(frames[0]), s.flags.Prefix+".png")
+
+	cmd.Args = append(cmd.Args, spritePath)
 
 	_, err := cmd.CombinedOutput()
 	s.clean(frames)
