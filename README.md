@@ -35,7 +35,7 @@ sprite-preview -i input_file.mp4 -o output.png -f 1 -w 160 -h 90 -v output.vtt
 
 # Flags
 - i: Path to the input video file.
-- o: Path to the output sprite sheet file. 
+- prefix: Path to the output sprite prefix sheet file. 
 - col: Number of columns in the sprite sheet. 
 - row: Number of rows in the sprite sheet.
 - f: Frequency of frames extraction in seconds.
