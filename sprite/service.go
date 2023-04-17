@@ -4,13 +4,11 @@ import (
 	"fmt"
 	"github.com/Paxx-RnD/go-ffmpeg/ffprobe"
 	"github.com/Paxx-RnD/go-helper/helpers/math_helper/mathint"
-	"github.com/Paxx-RnD/go-helper/helpers/path_helper"
 	"github.com/Paxx-RnD/go-helper/helpers/random_helper"
 	"github.com/Paxx-RnD/go-helper/helpers/time_helper"
 	"math"
 	"os"
 	"os/exec"
-	"path"
 	"sprite-preview/types"
 	"strconv"
 	"time"
@@ -81,7 +79,7 @@ func (s *service) Montage(frames []string) {
 		cmd.Args = append(cmd.Args, image)
 	}
 
-	cmd.Args = append(cmd.Args, s.flags.Output)
+	cmd.Args = append(cmd.Args, s.flags.Output+".png")
 
 	_, err := cmd.CombinedOutput()
 	s.clean(frames)
@@ -96,14 +94,17 @@ func (s *service) GenerateVtt(frames []string) {
 		panic("failed to create vtt file")
 	}
 
-	file.WriteString("WEBVTT\n\n")
+	_, err = file.WriteString("WEBVTT\n\n")
+	if err != nil {
+		panic("failed to write string in vtt")
+	}
 	t1 := time.Second * 0
 
 	grid := s.flags.Columns * s.flags.Rows
 	max := float64(len(frames)) / float64(grid)
 	nSprites := mathint.Max(1, int(math.Ceil(max)))
 	for n := 0; n < nSprites; n++ {
-		output := fmt.Sprintf("%s-%d%s", path_helper.BasePathWithoutExt(s.flags.Output), n, path.Ext(s.flags.Output))
+		output := fmt.Sprintf("%s-%d%s", s.flags.Output, n, ".png")
 		for y := 0; y < s.flags.Columns; y++ {
 			for x := 0; x < s.flags.Rows; x++ {
 				t2 := time.Duration(s.flags.Frequency) * time.Second
@@ -111,7 +112,10 @@ func (s *service) GenerateVtt(frames []string) {
 				end := time_helper.FormatHHMMSSmm(t1 + t2)
 
 				line := fmt.Sprintf("%s --> %s %s#xywh=%d,%d,%d,%d\n\n", start, end, output, x*s.flags.Width, y*s.flags.Height, s.flags.Width, s.flags.Height)
-				file.WriteString(line)
+				_, err = file.WriteString(line)
+				if err != nil {
+					panic("failed to sprite string in vtt")
+				}
 				t1 += t2
 			}
 		}
@@ -121,6 +125,9 @@ func (s *service) GenerateVtt(frames []string) {
 
 func (s *service) clean(frames []string) {
 	for _, frame := range frames {
-		os.Remove(frame)
+		err := os.Remove(frame)
+		if err != nil {
+			fmt.Println(err.Error())
+		}
 	}
 }
