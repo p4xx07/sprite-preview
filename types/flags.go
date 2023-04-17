@@ -7,7 +7,7 @@ import (
 
 type Flags struct {
 	Input     string
-	Output    string
+	Prefix    string
 	Vtt       string
 	Rows      int
 	Columns   int
@@ -19,8 +19,8 @@ type Flags struct {
 
 func (f *Flags) Set() error {
 	input := flag.String("i", "", "path of the input video")
-	output := flag.String("o", "", "output sprites")
-	vtt := flag.String("vtt", "", "specify the output for the vtt file")
+	prefix := flag.String("prefix", "", "prefix sprites")
+	vtt := flag.String("vtt", "", "specify the prefix for the vtt file")
 	frequency := flag.Int("f", 3, "extract frames every n seconds")
 	rows := flag.Int("row", 10, "how many rows")
 	columns := flag.Int("col", 10, "how many columns")
@@ -31,7 +31,7 @@ func (f *Flags) Set() error {
 	flag.Parse()
 
 	f.Input = *input
-	f.Output = *output
+	f.Prefix = *prefix
 	f.Vtt = *vtt
 	f.Frequency = *frequency
 	f.Rows = *rows
@@ -43,8 +43,8 @@ func (f *Flags) Set() error {
 	if f.Input == "" {
 		return fmt.Errorf("need to specify input")
 	}
-	if f.Output == "" {
-		return fmt.Errorf("need to specify output")
+	if f.Prefix == "" {
+		return fmt.Errorf("need to specify prefix")
 	}
 	if f.Frequency <= 0 {
 		return fmt.Errorf("need to specify valid target")

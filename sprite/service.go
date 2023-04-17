@@ -79,7 +79,7 @@ func (s *service) Montage(frames []string) {
 		cmd.Args = append(cmd.Args, image)
 	}
 
-	cmd.Args = append(cmd.Args, s.flags.Output+".png")
+	cmd.Args = append(cmd.Args, s.flags.Prefix+".png")
 
 	_, err := cmd.CombinedOutput()
 	s.clean(frames)
@@ -104,7 +104,7 @@ func (s *service) GenerateVtt(frames []string) {
 	max := float64(len(frames)) / float64(grid)
 	nSprites := mathint.Max(1, int(math.Ceil(max)))
 	for n := 0; n < nSprites; n++ {
-		output := fmt.Sprintf("%s-%d%s", s.flags.Output, n, ".png")
+		output := fmt.Sprintf("%s-%d%s", s.flags.Prefix, n, ".png")
 		for y := 0; y < s.flags.Columns; y++ {
 			for x := 0; x < s.flags.Rows; x++ {
 				t2 := time.Duration(s.flags.Frequency) * time.Second

@@ -86,7 +86,7 @@ func TestGenerateVtt(t *testing.T) {
 func getFlags() types.Flags {
 	flags := types.Flags{
 		Input:     inputPath,
-		Output:    outputPath,
+		Prefix:    outputPath,
 		Vtt:       vttPath,
 		Frequency: frameFrequency,
 		Width:     frameWidth,
