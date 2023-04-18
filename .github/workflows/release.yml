@@ -17,8 +17,8 @@ jobs:
           GOOS: linux
           EXTRA_FILES: "LICENSE"
           CMD_PATH: "cmd/main.go"
-          BUILD_ARGS: "-o peak-tracer"
-          PROJECT_NAME: "peak-tracer"
+          BUILD_ARGS: "-o sprite-preview"
+          PROJECT_NAME: "sprite-preview"
   release-linux-amd64:
     name: release linux/amd64
     permissions: write-all
@@ -33,8 +33,8 @@ jobs:
           GOOS: linux
           EXTRA_FILES: "LICENSE"
           CMD_PATH: "cmd/main.go"
-          BUILD_ARGS: "-o peak-tracer"
-          PROJECT_NAME: "peak-tracer"
+          BUILD_ARGS: "-o sprite-preview"
+          PROJECT_NAME: "sprite-preview"
   release-linux-arm:
     name: release linux/386
     permissions: write-all
@@ -49,8 +49,8 @@ jobs:
           GOOS: linux
           EXTRA_FILES: "LICENSE"
           CMD_PATH: "cmd/main.go"
-          BUILD_ARGS: "-o peak-tracer"
-          PROJECT_NAME: "peak-tracer"
+          BUILD_ARGS: "-o sprite-preview"
+          PROJECT_NAME: "sprite-preview"
   release-linux-arm64:
     name: release linux/amd64
     permissions: write-all
@@ -65,8 +65,8 @@ jobs:
           GOOS: linux
           EXTRA_FILES: "LICENSE"
           CMD_PATH: "cmd/main.go"
-          BUILD_ARGS: "-o peak-tracer"
-          PROJECT_NAME: "peak-tracer"
+          BUILD_ARGS: "-o sprite-preview"
+          PROJECT_NAME: "sprite-preview"
   release-darwin-amd64:
     name: release darwin/amd64
     permissions: write-all
@@ -81,8 +81,8 @@ jobs:
           GOOS: darwin
           EXTRA_FILES: "LICENSE"
           CMD_PATH: "cmd/main.go"
-          BUILD_ARGS: "-o peak-tracer"
-          PROJECT_NAME: "peak-tracer"
+          BUILD_ARGS: "-o sprite-preview"
+          PROJECT_NAME: "sprite-preview"
   release-windows-386:
     name: release windows/386
     permissions: write-all
@@ -97,8 +97,8 @@ jobs:
           GOOS: windows
           EXTRA_FILES: "LICENSE"
           CMD_PATH: "cmd/main.go"
-          BUILD_ARGS: "-o peak-tracer"
-          PROJECT_NAME: "peak-tracer"
+          BUILD_ARGS: "-o sprite-preview"
+          PROJECT_NAME: "sprite-preview"
   release-windows-amd64:
     name: release windows/amd64
     permissions: write-all
@@ -113,5 +113,5 @@ jobs:
           GOOS: windows
           EXTRA_FILES: "LICENSE"
           CMD_PATH: "cmd/main.go"
-          BUILD_ARGS: "-o peak-tracer"
-          PROJECT_NAME: "peak-tracer"
+          BUILD_ARGS: "-o sprite-preview"
+          PROJECT_NAME: "sprite-preview"
