@@ -55,7 +55,7 @@ func (s *service) extract(seek int) string {
 	seekString := strconv.Itoa(seek)
 	now := time.Now()
 	output := random_helper.Generate(5, random_helper.AZAndCaps) + fmt.Sprintf("%d", now.UnixMilli()) + ".jpg"
-	outputPath := path.Join(path.Dir(s.flags.Input), output)
+	outputPath := path.Join(path.Dir(s.flags.Vtt), output)
 	cmd := exec.Command(
 		"ffmpeg",
 		"-ss",
