@@ -54,7 +54,7 @@ func (s *service) GenerateFrames() []string {
 func (s *service) extract(seek int) string {
 	seekString := strconv.Itoa(seek)
 	now := time.Now()
-	output := random_helper.Generate(5, random_helper.AZAndCaps) + fmt.Sprintf("%d", now.UnixMilli()) + ".jpg"
+	output := random_helper.Generate(5, random_helper.AZAndCaps) + fmt.Sprintf("%d", now.UnixMilli()) + s.flags.Extension
 	outputPath := path.Join(path.Dir(s.flags.Vtt), output)
 	cmd := exec.Command(
 		"ffmpeg",
@@ -83,7 +83,7 @@ func (s *service) Montage(frames []string) {
 		cmd.Args = append(cmd.Args, image)
 	}
 
-	spritePath := path.Join(path.Dir(frames[0]), s.flags.Prefix+".jpg")
+	spritePath := path.Join(path.Dir(frames[0]), s.flags.Prefix+s.flags.Extension)
 
 	cmd.Args = append(cmd.Args, spritePath)
 
@@ -110,7 +110,7 @@ func (s *service) GenerateVtt(frames []string) {
 	max := float64(len(frames)) / float64(grid)
 	nSprites := mathint.Max(1, int(math.Ceil(max)))
 	for n := 0; n < nSprites; n++ {
-		output := fmt.Sprintf("%s-%d%s", s.flags.Prefix, n, ".jpg")
+		output := fmt.Sprintf("%s-%d%s", s.flags.Prefix, n, s.flags.Extension)
 		for y := 0; y < s.flags.Columns; y++ {
 			for x := 0; x < s.flags.Rows; x++ {
 				t2 := time.Duration(s.flags.Frequency) * time.Second

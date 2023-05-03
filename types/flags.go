@@ -14,6 +14,7 @@ type Flags struct {
 	Frequency int
 	Width     int
 	Height    int
+	Extension string
 	Help      bool
 }
 
@@ -26,11 +27,13 @@ func (f *Flags) Set() error {
 	columns := flag.Int("col", 10, "how many columns")
 	width := flag.Int("w", 160, "frame width")
 	height := flag.Int("h", 90, "frame height")
+	extension := flag.String("ext", ".jpg", "output sprite extension")
 	help := flag.Bool("help", false, "shows help")
 
 	flag.Parse()
 
 	f.Input = *input
+	f.Extension = *extension
 	f.Prefix = *prefix
 	f.Vtt = *vtt
 	f.Frequency = *frequency
@@ -48,6 +51,9 @@ func (f *Flags) Set() error {
 	}
 	if f.Frequency <= 0 {
 		return fmt.Errorf("need to specify valid target")
+	}
+	if f.Extension != ".jpg" && f.Extension != ".jpeg" && f.Extension != ".png" {
+		return fmt.Errorf("not a valid extension")
 	}
 
 	return nil
