@@ -3,7 +3,7 @@ module sprite-preview
 go 1.18
 
 require (
-	github.com/Paxx-RnD/go-ffmpeg v1.0.29
+	github.com/Paxx-RnD/go-ffmpeg v1.0.32
 	github.com/Paxx-RnD/go-helper v1.0.43
 	github.com/stretchr/testify v1.8.2
 )
