@@ -1,7 +1,7 @@
 github.com/Paxx-RnD/go-ffmpeg v1.0.29 h1:Fk4A+X1j41/yz5ap2ZjePcYG6ZcGB8td8BfNhmmXWz0=
 github.com/Paxx-RnD/go-ffmpeg v1.0.29/go.mod h1:ymbsA0Vww2EirvEY3bqLchnLhZ/Cf0nlH/ugk8nbg6w=
-github.com/Paxx-RnD/go-helper v1.0.43 h1:bmc4SjF4a1nLeDja0SvKhVCSRf6a0V1SfBtVVPBdKzU=
-github.com/Paxx-RnD/go-helper v1.0.43/go.mod h1:SFnzxOpa+touo6dzwEqKb5m90Qo4OhZ1yCD95dxuntk=
+github.com/Paxx-RnD/go-helper v1.0.53 h1:EEmDGHbf2q5S3m+Ec8hfWHvX1dbdxplMOXloaY8+lzQ=
+github.com/Paxx-RnD/go-helper v1.0.53/go.mod h1:Ng47qyxnTvYB/dJMOa748CXzIgjOd3HLi+y5bqa8li8=
 github.com/caarlos0/env/v6 v6.10.1 h1:t1mPSxNpei6M5yAeu1qtRdPAK29Nbcf/n3G7x+b3/II=
 github.com/caarlos0/env/v6 v6.10.1/go.mod h1:hvp/ryKXKipEkcuYjs9mI4bBCg+UI0Yhgm5Zu0ddvwc=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
