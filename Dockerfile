@@ -20,7 +20,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -a -o main c
 ########################
 
 # Start from a new lightweight image
-FROM alpine:latest
+FROM alpine:3.18.3
 
 # Install ffmpeg and imagemagick
 RUN apk --no-cache add ffmpeg imagemagick
